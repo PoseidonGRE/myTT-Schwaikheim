@@ -3,9 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meine React App</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>🏓 MyTT-Schwaikheim – Tischtennis Vereinssoftware</title>
+  <meta name="description" content="MyTT-Schwaikheim: Die smarte Tischtennis-Software für deinen Verein. Mitglieder, Training, Spieltage & mehr, alles in einer modernen App!" />
+  <meta name="theme-color" content="#4f8cff" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="MyTT-Schwaikheim – Tischtennis Vereinssoftware" />
+  <meta property="og:description" content="Die innovative All-in-One-Lösung für den Tischtennisverein Schwaikheim." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:url" content="https://ttv-schwaikheim.de/app" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MyTT-Schwaikheim – Tischtennis Vereinssoftware" />
+  <meta name="twitter:description" content="Die smarte Tischtennis-App für den TTV Schwaikheim." />
+  <meta name="twitter:image" content="/og-image.png" />
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Fonts & Material Icons (Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Splashscreen-Style, solange React lädt -->
+  <style>
+    body {
+      background: linear-gradient(90deg, #4f8cff 0%, #5eead4 100%);
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+    #root:empty::before {
+      content: "🏓 MyTT-Schwaikheim lädt ...";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, #4f8cff 0%, #5eead4 100%);
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+  </style>
 </head>
 <body>
+  <noscript>Bitte aktiviere JavaScript, um MyTT-Schwaikheim zu nutzen.</noscript>
   <div id="root"></div>
   <script src="/bundle.js"></script>
 </body>
