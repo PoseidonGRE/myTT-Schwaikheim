@@ -3,7 +3,7 @@ import {
   Button, TextField, Switch, Checkbox, Autocomplete, Box, Chip,
   FormControl, InputLabel, Select, MenuItem, OutlinedInput
 } from '@mui/material';
-import Grid2 from '@mui/material/Unstable_Grid2'; // ★ neues Grid2-API
+import Grid2 from '@mui/material/Unstable_Grid2'; // neues Grid2-API für MUI 5.x
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -216,8 +216,8 @@ export default function MitgliedForm({
             <DatePicker
               label="Geburtstag"
               value={geburtstag}
-              onChange={v => setGeburtstag(v)}
-              slotProps={{ textField: { fullWidth: true, disabled: saving } }}
+              onChange={(v: Date | null) => setGeburtstag(v)}
+              renderInput={params => <TextField fullWidth disabled={saving} {...params} />}
               disabled={saving}
             />
           </Grid2>
@@ -302,8 +302,8 @@ export default function MitgliedForm({
             <DatePicker
               label="Eintrittsdatum"
               value={eintrittsdatum}
-              onChange={v => setEintrittsdatum(v)}
-              slotProps={{ textField: { fullWidth: true, disabled: saving } }}
+              onChange={(v: Date | null) => setEintrittsdatum(v)}
+              renderInput={params => <TextField fullWidth disabled={saving} {...params} />}
               disabled={saving}
             />
           </Grid2>
