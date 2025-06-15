@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>🏓 MyTT-Schwaikheim – Tischtennis Vereinssoftware</title>
   <meta name="description" content="MyTT-Schwaikheim: Die smarte Tischtennis-Software für deinen Verein. Mitglieder, Training, Spieltage & mehr, alles in einer modernen App!" />
-  <meta name="theme-color" content="#4f8cff" />
+  <meta name="theme-color" content="#eaf2fb" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="MyTT-Schwaikheim – Tischtennis Vereinssoftware" />
@@ -32,10 +32,20 @@
 
   <!-- Splashscreen-Style, solange React lädt -->
   <style>
+    :root {
+      --primary: #247be7;
+      --accent: #3de6b5;
+      --soft-bg: #f6fafd;
+      --card-shadow: 0 4px 24px 0 rgba(36,123,231,0.06);
+      --splash-text: #222;
+      --accent-bg: linear-gradient(90deg, #eaf2fb 0%, #f6fafd 100%);
+    }
     body {
-      background: linear-gradient(90deg, #4f8cff 0%, #5eead4 100%);
+      background: var(--accent-bg);
       margin: 0;
       font-family: 'Roboto', Arial, sans-serif;
+      color: #222;
+      min-height: 100vh;
     }
     #root:empty::before {
       content: "🏓 MyTT-Schwaikheim lädt ...";
@@ -43,17 +53,27 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      font-size: 2rem;
-      color: #fff;
+      font-size: 2.3rem;
+      color: var(--primary);
       font-weight: bold;
-      letter-spacing: 0.04em;
-      background: linear-gradient(90deg, #4f8cff 0%, #5eead4 100%);
+      letter-spacing: 0.03em;
+      background: var(--accent-bg);
       width: 100vw;
       height: 100vh;
       position: fixed;
       top: 0;
       left: 0;
       z-index: 9999;
+      border-radius: 0 0 32px 32px;
+      box-shadow: var(--card-shadow);
+      box-sizing: border-box;
+      transition: background 0.4s;
+    }
+    @media (max-width: 600px) {
+      #root:empty::before {
+        font-size: 1.5rem;
+        border-radius: 0;
+      }
     }
   </style>
 </head>
