@@ -1,21 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'development', // Für Produktion auf 'production' ändern
 
   entry: path.resolve(__dirname, 'src/index.tsx'),
 
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: '/', // wichtig für SPA-Routing
+    clean: true, // leert dist vor jedem Build
   },
 
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      // Erzwinge genau eine React-Instanz aus node_modules
       react: path.resolve(__dirname, 'node_modules/react'),
       'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
     },
@@ -47,18 +48,18 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development'
-      ),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
-    // CopyWebpackPlugin entfernt, da keine contentScript.js existiert
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public/index.html'), // Vorlage!
+      filename: 'index.html',
+    }),
   ],
 
   devtool: 'source-map',
 
   devServer: {
     static: {
-      // Statischer Content aus public/
       directory: path.resolve(__dirname, 'public'),
     },
     historyApiFallback: true,
